@@ -34,7 +34,8 @@ class Message
 
     public function getBody()
     {
-	     if($this->body == null){                                    $this->body = imap_fetchbody($this->mailbox, $this->emailNumber, 1); // Plain text body                                             }
+	    if($this->body == null){                                    $this->body = imap_fetchbody($this->mailbox, $this->emailNumber, 1); // Plain text body                                             
+	    }
             return $this->body;
     }
 }
