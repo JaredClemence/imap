@@ -1,0 +1,19 @@
+{
+    "name": "jaredclemence/imap",
+    "description": "A custom IMAP library.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jaredclemence\\Imap\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jared R. Clemence",
+            "email": "jaredclemence@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
