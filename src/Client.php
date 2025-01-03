@@ -28,6 +28,7 @@ class Client
     public function disconnect()
     {
         if ($this->mailbox) {
+            imap_expunge($this->mailbox);
             imap_close($this->mailbox);
         }
     }

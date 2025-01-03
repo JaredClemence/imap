@@ -16,9 +16,17 @@ class Message
 	$this->header = null;
 	$this->body = null;
     }
+    
+    public function markForDeletion(){
+        \imap_delete($this->mailbox, $this>emailNumber);
+    }
+    
+    public function markRead(){
+        \imap_setflag_full($this->mailbox, $this->emailNumber, "\\Seen");
+    }
 
     public function getHeader(){
-	if($this->header==null) $this->header = imap_headerinfo($this->mailbox, $this->emailNumber);
+	if($this->header==null) $this->header = \imap_headerinfo($this->mailbox, $this->emailNumber);
 	return $this->header;
     }
 
@@ -34,7 +42,9 @@ class Message
 
     public function getBody()
     {
-	    if($this->body == null){                                    $this->body = imap_fetchbody($this->mailbox, $this->emailNumber, 1); // Plain text body                                             
+	    if($this->body == null){ 
+                $this->body = imap_fetchbody($this->mailbox, $this->emailNumber, 1); 
+                // Plain text body                                             
 	    }
             return $this->body;
     }
